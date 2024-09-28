@@ -35,7 +35,7 @@
             <button type="submit">Cadastrar</button>
         </form>
 
-        <p><a href="usuarios.php">Acessar a Lista</a></p>
+        <p><a href="usuarios.php">Acessar usuarios</a></p>
     </div>   
 </body>
 </html>

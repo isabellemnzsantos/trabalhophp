@@ -107,7 +107,7 @@ $conn->close();
         <?php else: ?>
             <p>Nenhum dado foi cadastrado.</p>
         <?php endif; ?>
-        <a href="forms.php">Voltar ao formulário</a>
+        <a href="forms.php">Voltar ao formulário</a><br><br>
         <a href="usuarios.php">Ver usuários</a>
     </div>
 </body>
