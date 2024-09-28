@@ -1,22 +1,22 @@
 <?php
-include "bd.php"; // Inclui o arquivo de conexão
+include "bd.php"; 
 
-// Verifica se a conexão foi bem-sucedida
+
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
-// Verifica se o formulário de exclusão foi enviado
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = $conn->real_escape_string($_POST['id']);
 
-    // Prepara e executa a exclusão
+
     $sql = "DELETE FROM Formulario WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        // Redireciona de volta para a lista após a exclusão
+
         header("Location: usuarios.php");
         exit();
     } else {
@@ -52,7 +52,7 @@ $result = $conn->query($sql);
                         <th>Data de Nascimento</th>
                         <th>Gênero</th>
                         <th>Biografia</th>
-                        <th>Ações</th> <!-- Adicionei um cabeçalho para ações -->
+                        <th>Ações</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -65,7 +65,7 @@ $result = $conn->query($sql);
                             <td><?php echo htmlspecialchars($row['genero']); ?></td>
                             <td><?php echo htmlspecialchars($row['biografia']); ?></td>
                             <td>
-                                <!-- Formulário para exclusão -->
+
                                 <div class="delete-button-container">
                                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return confirm('Você tem certeza que deseja excluir este registro?');">
                                         <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
